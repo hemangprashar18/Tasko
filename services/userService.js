@@ -32,11 +32,10 @@ const fetchAndSaveUsers = async (batchSize, batchCount, delay) => {
       totalFetched += 100;
       if ((i + 100) % 500 === 0) {
         console.log('Sleeping for 30 seconds after 5 requests...');
-        await sleep(30000); // Pause after 5 requests
+        await sleep(30000); 
       }
     }
 
-    // Save fetched users to the database
     await User.insertMany(users);
     console.log(`${users.length} users inserted in batch ${batchIndex + 1}`);
 
